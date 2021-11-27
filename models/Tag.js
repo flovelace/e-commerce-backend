@@ -1,4 +1,3 @@
-
 // Tag model constructor
 
 const { Model, DataTypes } = require('sequelize');
