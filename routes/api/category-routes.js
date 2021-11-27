@@ -59,22 +59,22 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
-  Category.update({
+  Category.update(req.body, {
     where: {
       id: req.params.id
     }
   })
     .then(categoryData => {
       if (!categoryData) {
-        res.status(404).json({ message: 'Category is Missing at this ID' })
+        res.status(404).json({ message: 'Category Missing at this ID' })
         return
 
       }
       res.json(categoryData)
     })
-    .catch(err => {
+    .catch(e => {
 
-      res.status(500).json(err)
+      res.status(500).json(e)
     })
 })
 
